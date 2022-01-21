@@ -154,7 +154,7 @@ class BuyTicket extends StatelessWidget {
               ),
             ),
            
-            Center(child: Image.asset('assets/images/screen.png')),
+            Center(child: Image.asset('assets/screen.png')),
             Padding(
               padding: const EdgeInsets.all(5.0),
               child: Column(

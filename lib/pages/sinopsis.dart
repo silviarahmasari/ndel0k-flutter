@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-
-// import 'package:myapp/auth/auth_state.dart';
-
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-// import 'package:myapp/src/pages/index.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_uts/pages/pilihjadwal.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:map/map.dart';
 import 'package:latlng/latlng.dart';
 import 'package:paged_vertical_calendar/paged_vertical_calendar.dart';
+import 'package:project_uts/model/preferensi.dart';
 
 class PageSinopsis extends StatefulWidget {
   const PageSinopsis({
@@ -30,7 +28,7 @@ class _State extends State<PageSinopsis> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF000000),
+      backgroundColor: const Color(0xFF36474F),
       body: Stack(
         children: [
           Column(
@@ -52,13 +50,13 @@ class _State extends State<PageSinopsis> {
                         left: 20,
                         top: 40,
                         right: 20,
-                        bottom: 20,
+                        bottom: 10,
                       ),
                       padding: EdgeInsets.zero,
                       width: 120,
-                      height: 1,
+                      height: 170,
                       decoration: BoxDecoration(
-                        color: const Color(0xFF997676),
+                        color: const Color(0xFF36474F),
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(12),
                           topRight: Radius.circular(12),
@@ -71,15 +69,15 @@ class _State extends State<PageSinopsis> {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(1),
-                              topRight: Radius.circular(1),
-                              bottomRight: Radius.circular(1),
-                              bottomLeft: Radius.circular(1),
+                              topLeft: Radius.circular(12),
+                              topRight: Radius.circular(12),
+                              bottomRight: Radius.circular(12),
+                              bottomLeft: Radius.circular(12),
                             ),
-                            child: Image.network(
-                              '''https://source.unsplash.com/random''',
-                              width: double.maxFinite,
-                              height: 150,
+                            child: Image.asset(
+                              'assets/ff9.jpg',
+                              width: 120,
+                              height: 170,
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -87,18 +85,20 @@ class _State extends State<PageSinopsis> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.zero,
+                      margin: const EdgeInsets.only(
+                        top: 20,
+                      ),
                       padding: EdgeInsets.zero,
-                      width: double.maxFinite,
-                      height: 180,
+                      width: 180,
+                      height: 160,
                       decoration: const BoxDecoration(
-                        color: Color(0xFF000000),
+                        color: Color(0xFF36474F),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('''Our Beloved Summer''',
+                          Text(''+Preferensi().getMoviesName+'',
                               style: GoogleFonts.montserrat(
                                 textStyle: TextStyle(
                                   color: const Color(0xFFFFFFFF),
@@ -110,7 +110,7 @@ class _State extends State<PageSinopsis> {
                               ),
                               textAlign: TextAlign.left,
                               maxLines: 1),
-                          Text('''Genre : Romance, Comedy''',
+                          Text('''Genre : Action''',
                               style: GoogleFonts.montserrat(
                                 textStyle: TextStyle(
                                   color: const Color(0xFFFFFFFF),
@@ -122,7 +122,7 @@ class _State extends State<PageSinopsis> {
                               ),
                               textAlign: TextAlign.left,
                               maxLines: 1),
-                          Text('''1 jam 20 menit''',
+                          Text('''Durasai : 1 jam 20 menit''',
                               style: GoogleFonts.montserrat(
                                 textStyle: TextStyle(
                                   color: const Color(0xFFFFFFFF),
@@ -146,7 +146,7 @@ class _State extends State<PageSinopsis> {
                 width: double.maxFinite,
                 height: 50,
                 decoration: const BoxDecoration(
-                  color: Color(0xFF000000),
+                  color: Color(0xFF36474F),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -155,7 +155,6 @@ class _State extends State<PageSinopsis> {
                       margin: EdgeInsets.zero,
                       padding: EdgeInsets.zero,
                       width: 187,
-                      height: 150,
                       decoration: const BoxDecoration(
                         color: Color(0xFF36474F),
                       ),
@@ -187,18 +186,38 @@ class _State extends State<PageSinopsis> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('''JADWAL''',
-                              style: GoogleFonts.montserrat(
-                                textStyle: TextStyle(
-                                  color: const Color(0xFFFFFFFF),
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18,
-                                  fontStyle: FontStyle.normal,
-                                  decoration: TextDecoration.none,
+                          GestureDetector(
+                            onTap: () async {
+                              await Navigator.push<void>(
+                                context,
+                                  MaterialPageRoute(
+                                    builder: (context) => PagePilihJadwal(),
+                                  ),
+                              );
+                            },
+                              child: Container(
+                                margin: const EdgeInsets.only(
+                                  top: 13,
                                 ),
-                              ),
-                              textAlign: TextAlign.left,
-                              maxLines: 1),
+                                padding: EdgeInsets.zero,
+                                  width: double.maxFinite,
+                                  height: 35,
+                                  decoration: const BoxDecoration(
+                                    color: Color(0xFF36474F),
+                                  ),
+                                  child: Text(
+                                    '''JADWAL''',
+                                    style: GoogleFonts.montserrat(
+                                      textStyle: TextStyle(
+                                        color: const Color(0xFFFFFFFF),
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 18,
+                                        fontStyle: FontStyle.normal,
+                                        decoration: TextDecoration.none,
+                                      ),
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ))),
                         ],
                       ),
                     ),
@@ -241,7 +260,7 @@ class _State extends State<PageSinopsis> {
                         left: 15,
                       ),
                       padding: EdgeInsets.zero,
-                      width: 177,
+                      width: 178,
                       decoration: BoxDecoration(
                         color: const Color(0xFF607D8B),
                         borderRadius: BorderRadius.only(
@@ -264,10 +283,10 @@ class _State extends State<PageSinopsis> {
                     ),
                     Container(
                       margin: const EdgeInsets.only(
-                        left: 145,
+                        left: 180,
                       ),
                       padding: EdgeInsets.zero,
-                      width: 25,
+                      width: 26,
                       decoration: const BoxDecoration(
                         color: Color(0xFF607D8B),
                       ),
@@ -294,7 +313,7 @@ class _State extends State<PageSinopsis> {
                   bottom: 20,
                 ),
                 width: double.maxFinite,
-                height: 450,
+                height: 335,
                 decoration: const BoxDecoration(
                   color: Color(0xFF607D8B),
                 ),
