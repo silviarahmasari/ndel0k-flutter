@@ -6,8 +6,8 @@ import 'package:map/map.dart';
 import 'package:latlng/latlng.dart';
 import 'package:paged_vertical_calendar/paged_vertical_calendar.dart';
 
-class PageEmptyA1 extends StatefulWidget {
-  const PageEmptyA1({
+class PageTicket extends StatefulWidget {
+  const PageTicket({
     Key? key,
   }) : super(key: key);
 
@@ -15,7 +15,7 @@ class PageEmptyA1 extends StatefulWidget {
   _State createState() => _State();
 }
 
-class _State extends State<PageEmptyA1> {
+class _State extends State<PageTicket> {
   final datasets = <String, dynamic>{};
 
   @override
@@ -52,7 +52,7 @@ class _State extends State<PageEmptyA1> {
                       decoration: const BoxDecoration(
                         color: Color(0xFF36474F),
                       ),
-                      child: Text('''Our Beloved Summe''',
+                      child: Text('''Our Beloved Summer''',
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
                               color: const Color(0xFFFFFFFF),
@@ -97,7 +97,19 @@ class _State extends State<PageEmptyA1> {
                                     ),
                                     textAlign: TextAlign.left,
                                     maxLines: 1),
-                                Text('''5 Jan 2022''',
+                                Text('''5 Jan''',
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        color: const Color(0xFFFFFFFF),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 16,
+                                        fontStyle: FontStyle.normal,
+                                        decoration: TextDecoration.none,
+                                      ),
+                                    ),
+                                    textAlign: TextAlign.left,
+                                    maxLines: 1),
+                                Text('''2022''',
                                     style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                         color: const Color(0xFFFFFFFF),
@@ -175,7 +187,7 @@ class _State extends State<PageEmptyA1> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('''j''',
+                                Text('''Jam''',
                                     style: GoogleFonts.poppins(
                                       textStyle: TextStyle(
                                         color: const Color(0xFFFFFFFF),
@@ -185,7 +197,7 @@ class _State extends State<PageEmptyA1> {
                                         decoration: TextDecoration.none,
                                       ),
                                     ),
-                                    textAlign: TextAlign.left,
+                                    textAlign: TextAlign.right,
                                     maxLines: 1),
                                 Text('''14:45''',
                                     style: GoogleFonts.poppins(
@@ -197,7 +209,7 @@ class _State extends State<PageEmptyA1> {
                                         decoration: TextDecoration.none,
                                       ),
                                     ),
-                                    textAlign: TextAlign.left,
+                                    textAlign: TextAlign.right,
                                     maxLines: 1),
                               ],
                             ),
@@ -212,7 +224,7 @@ class _State extends State<PageEmptyA1> {
                 margin: EdgeInsets.zero,
                 padding: EdgeInsets.zero,
                 width: double.maxFinite,
-                height: 150,
+                height: 200,
                 decoration: const BoxDecoration(
                   color: Color(0xFFFF9900),
                 ),
@@ -223,43 +235,60 @@ class _State extends State<PageEmptyA1> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          margin: EdgeInsets.zero,
-                          padding: EdgeInsets.zero,
-                          width: 149,
-                          decoration: const BoxDecoration(
-                            color: Color(0xFFFF9900),
+                          margin: const EdgeInsets.only(
+                            left: 10,
                           ),
-                          child: Text('''Kode Book''',
-                              style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  color: const Color(0xFFFFFFFF),
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 16,
-                                  fontStyle: FontStyle.normal,
-                                  decoration: TextDecoration.none,
+                          padding: EdgeInsets.zero,
+                          width: 135,
+                          decoration: const BoxDecoration(
+                            color: Color(0xFF000000),
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.zero,
+                                padding: EdgeInsets.zero,
+                                width: 150,
+                                decoration: const BoxDecoration(
+                                  color: Color(0xFFFF9900),
                                 ),
+                                child: Text('''Kode Booking''',
+                                    style: GoogleFonts.poppins(
+                                      textStyle: TextStyle(
+                                        color: const Color(0xFFFFFFFF),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 16,
+                                        fontStyle: FontStyle.normal,
+                                        decoration: TextDecoration.none,
+                                      ),
+                                    ),
+                                    textAlign: TextAlign.left,
+                                    maxLines: 1),
                               ),
-                              textAlign: TextAlign.left,
-                              maxLines: 1),
+                              Text('''BCTBGT0001''',
+                                  style: GoogleFonts.poppins(
+                                    textStyle: TextStyle(
+                                      color: const Color(0xFFFFFFFF),
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 16,
+                                      fontStyle: FontStyle.normal,
+                                      decoration: TextDecoration.none,
+                                    ),
+                                  ),
+                                  textAlign: TextAlign.right,
+                                  maxLines: 1),
+                            ],
+                          ),
                         ),
-                        Text('''BCTBGT001''',
-                            style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
-                                color: const Color(0xFFFFFFFF),
-                                fontWeight: FontWeight.w400,
-                                fontSize: 16,
-                                fontStyle: FontStyle.normal,
-                                decoration: TextDecoration.none,
-                              ),
-                            ),
-                            textAlign: TextAlign.left,
-                            maxLines: 1),
                       ],
                     ),
                     Container(
-                      margin: EdgeInsets.zero,
+                      margin: const EdgeInsets.only(
+                        left: 10,
+                      ),
                       padding: EdgeInsets.zero,
-                      width: 100,
+                      width: 135,
                       decoration: const BoxDecoration(
                         color: Color(0xFF000000),
                       ),
@@ -302,10 +331,13 @@ class _State extends State<PageEmptyA1> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.zero,
+                      margin: const EdgeInsets.only(
+                        left: 10,
+                      ),
                       padding: EdgeInsets.zero,
+                      width: 135,
                       decoration: const BoxDecoration(
-                        color: Color(0xFFA49783),
+                        color: Color(0xFF000000),
                       ),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -313,11 +345,11 @@ class _State extends State<PageEmptyA1> {
                           Container(
                             margin: EdgeInsets.zero,
                             padding: EdgeInsets.zero,
-                            width: 149,
+                            width: 150,
                             decoration: const BoxDecoration(
                               color: Color(0xFFFF9900),
                             ),
-                            child: Text('''Kode Book''',
+                            child: Text('''''',
                                 style: GoogleFonts.poppins(
                                   textStyle: TextStyle(
                                     color: const Color(0xFFFFFFFF),
@@ -330,7 +362,7 @@ class _State extends State<PageEmptyA1> {
                                 textAlign: TextAlign.left,
                                 maxLines: 1),
                           ),
-                          Text('''BCTBGT001''',
+                          Text('''A''',
                               style: GoogleFonts.poppins(
                                 textStyle: TextStyle(
                                   color: const Color(0xFFFFFFFF),
@@ -340,7 +372,7 @@ class _State extends State<PageEmptyA1> {
                                   decoration: TextDecoration.none,
                                 ),
                               ),
-                              textAlign: TextAlign.left,
+                              textAlign: TextAlign.right,
                               maxLines: 1),
                         ],
                       ),
@@ -368,22 +400,22 @@ class _State extends State<PageEmptyA1> {
                       ),
                     ),
                     textAlign: TextAlign.center,
-                    maxLines: 1),
+                    maxLines: 3),
               ),
               Container(
                 margin: const EdgeInsets.only(),
                 padding: EdgeInsets.zero,
                 width: double.maxFinite,
-                height: 40,
+                height: 50,
                 decoration: const BoxDecoration(
                   color: Color(0xFF36474F),
                 ),
-                child: Text('''KEMBAL''',
+                child: Text('''KEMBALI''',
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
                         color: const Color(0xFFFF9900),
                         fontWeight: FontWeight.w400,
-                        fontSize: 16,
+                        fontSize: 20,
                         fontStyle: FontStyle.normal,
                         decoration: TextDecoration.none,
                       ),

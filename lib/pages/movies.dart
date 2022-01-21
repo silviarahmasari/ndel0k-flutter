@@ -11,6 +11,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'pilihjadwal.dart';
 import 'topup.dart';
 import 'tiket.dart';
+import 'ticket.dart';
 
 
 class Movies extends StatefulWidget{
@@ -21,8 +22,10 @@ class Movies extends StatefulWidget{
 }
 
 class _movies extends State<Movies>{
+  List<String> selectedGenre =[];
+
   List<Mmovies> nowPlayingMovies = [];
-  String base_url = 'http://172.20.10.3/image/';
+  String base_url = 'http://192.168.1.13/image/';
   bool loading = true;
   List<Widget> imageSliders = [];
 
@@ -40,7 +43,7 @@ class _movies extends State<Movies>{
     });
 
     final response = await http
-        .get(Uri.parse('http://172.20.10.3/moviesnowplaying'));
+        .get(Uri.parse('http://192.168.1.13/moviesnowplaying'));
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
@@ -55,6 +58,7 @@ class _movies extends State<Movies>{
         imageSliders = nowPlayingMovies
             .map((item) => GestureDetector(
           onTap: (){
+            Preferensi().setGenre=selectedGenre;
             Preferensi().setMoviesID = item.id;
             Preferensi().setMoviesName = item.mnama;
             Preferensi().setMoviesStatus = item.status;
@@ -115,7 +119,7 @@ class _movies extends State<Movies>{
     });
 
     final response = await http
-        .get(Uri.parse('http://172.20.10.3/moviesbrowse'));
+        .get(Uri.parse('http://192.168.1.13/moviesbrowse'));
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
@@ -188,7 +192,7 @@ class _movies extends State<Movies>{
     });
 
     final response = await http
-        .get(Uri.parse('http://172.20.10.3/moviescomingsoon'));
+        .get(Uri.parse('http://192.168.1.13/moviescomingsoon'));
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
@@ -384,8 +388,11 @@ class _movies extends State<Movies>{
               ),
               MaterialButton(
                 minWidth: 60,
+                // onPressed: (){
+                //   Navigator.push(context, MaterialPageRoute(builder: (context)=>Tiket()));
+                // },
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Tiket()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PageTicket()));
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

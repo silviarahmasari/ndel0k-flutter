@@ -57,4 +57,10 @@ class Preferensi{
 
   String get getMoviesName => _sharedPreferences.getString('MName') ?? '';
 
+  set setMoviesPict(String file_name){
+    _sharedPreferences.setString('Picture', file_name);
+  }
+
+  String get getMoviesPict => _sharedPreferences.getString('Picture') ?? '';
+
 }
