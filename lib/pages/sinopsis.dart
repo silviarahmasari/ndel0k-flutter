@@ -320,7 +320,8 @@ class _State extends State<PageSinopsis> {
                 child: Column(
                   children: [
                     Text(
-                        '''Our Beloved Summer adalah sebuah komedi romantis adaptasi webtoon yang menggambarkan perasaan rumit dari pasangan yang putus dengan mengatakan, " Saat itu adalah waktu yang buruk denganmu, mari kita tidak pernah bertemu lagi!" Namun, film dokumenter yang mereka rekam 10 tahun yang lalu di sekolah menengah tiba-tiba mendapatkan popularitas dan mereka dipaksa untuk berada di depan kamera bersama sekali lagi.''',
+                        // '''Our Beloved Summer adalah sebuah komedi romantis adaptasi webtoon yang menggambarkan perasaan rumit dari pasangan yang putus dengan mengatakan, " Saat itu adalah waktu yang buruk denganmu, mari kita tidak pernah bertemu lagi!" Namun, film dokumenter yang mereka rekam 10 tahun yang lalu di sekolah menengah tiba-tiba mendapatkan popularitas dan mereka dipaksa untuk berada di depan kamera bersama sekali lagi.''',
+                        ''+Preferensi().getSinopsis+'',
                         style: GoogleFonts.montserrat(
                           textStyle: TextStyle(
                             color: const Color(0xFFFFFFFF),
@@ -332,19 +333,19 @@ class _State extends State<PageSinopsis> {
                         ),
                         textAlign: TextAlign.left,
                         maxLines: 3),
-                    Text(
-                        '''Dalam drama tersebut, Choi Woo Shik memerankan Choi Woong, seorang ilustrator yang terbiasa menyembunyikan kehidupan pribadinya. Dia tumbuh dalam keluarga yang layak tanpa kekurangan apa pun, tetapi dia tidak memiliki mimpi yang nyata, dan dia terbiasa menyembunyikan dirinya sendiri.''',
-                        style: GoogleFonts.montserrat(
-                          textStyle: TextStyle(
-                            color: const Color(0xFFFFFFFF),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            fontStyle: FontStyle.normal,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                        textAlign: TextAlign.left,
-                        maxLines: 30),
+                    // Text(
+                    //     '''Dalam drama tersebut, Choi Woo Shik memerankan Choi Woong, seorang ilustrator yang terbiasa menyembunyikan kehidupan pribadinya. Dia tumbuh dalam keluarga yang layak tanpa kekurangan apa pun, tetapi dia tidak memiliki mimpi yang nyata, dan dia terbiasa menyembunyikan dirinya sendiri.''',
+                    //     style: GoogleFonts.montserrat(
+                    //       textStyle: TextStyle(
+                    //         color: const Color(0xFFFFFFFF),
+                    //         fontWeight: FontWeight.w400,
+                    //         fontSize: 14,
+                    //         fontStyle: FontStyle.normal,
+                    //         decoration: TextDecoration.none,
+                    //       ),
+                    //     ),
+                    //     textAlign: TextAlign.left,
+                    //     maxLines: 30),
                   ],
                 ),
               ),

@@ -63,4 +63,10 @@ class Preferensi{
 
   String get getMoviesPict => _sharedPreferences.getString('Picture') ?? '';
 
+  set setSinopsis(String sinopsis){
+    _sharedPreferences.setString('Picture', sinopsis);
+  }
+
+  String get getSinopsis => _sharedPreferences.getString('Sinopsis') ?? '';
+
 }

@@ -25,7 +25,7 @@ class _movies extends State<Movies>{
   List<String> selectedGenre =[];
 
   List<Mmovies> nowPlayingMovies = [];
-  String base_url = 'http://192.168.1.13/image/';
+  String base_url = 'http://172.20.10.3/image/';
   bool loading = true;
   List<Widget> imageSliders = [];
 
@@ -43,7 +43,7 @@ class _movies extends State<Movies>{
     });
 
     final response = await http
-        .get(Uri.parse('http://192.168.1.13/moviesnowplaying'));
+        .get(Uri.parse('http://172.20.10.3/moviesnowplaying'));
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
@@ -119,7 +119,7 @@ class _movies extends State<Movies>{
     });
 
     final response = await http
-        .get(Uri.parse('http://192.168.1.13/moviesbrowse'));
+        .get(Uri.parse('http://172.20.10.3/moviesbrowse'));
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
@@ -192,7 +192,7 @@ class _movies extends State<Movies>{
     });
 
     final response = await http
-        .get(Uri.parse('http://192.168.1.13/moviescomingsoon'));
+        .get(Uri.parse('http://172.20.10.3/moviescomingsoon'));
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
@@ -275,7 +275,7 @@ class _movies extends State<Movies>{
             Container(
               height: 120,
               decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: const Color(0xFF36474F),
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(25),
                       bottomRight: Radius.circular(25)
@@ -377,11 +377,11 @@ class _movies extends State<Movies>{
                   children: [
                     Icon(
                       Icons.airplay,
-                      color: Colors.blue,
+                      color: const Color(0xFF36474F),
                     ),
                     Text(
                         'New Movies',
-                        style: TextStyle(color: Colors.blue)
+                        style: TextStyle(color: const Color(0xFF36474F))
                     )
                   ],
                 ),
