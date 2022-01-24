@@ -97,7 +97,7 @@ class _survey_2 extends State<Survey_2>{
               ),
               FloatingActionButton(
                 child: Icon(Icons.arrow_forward),
-                backgroundColor: Colors.purple,
+                backgroundColor: Colors.amberAccent.shade700,
                 elevation: 0,
                 onPressed: (){
                   Preferensi().setGenre=selectedGenre;

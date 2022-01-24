@@ -4,9 +4,33 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:map/map.dart';
 import 'package:latlng/latlng.dart';
+import 'package:http/http.dart' as http;
 import 'package:paged_vertical_calendar/paged_vertical_calendar.dart';
 import 'package:project_uts/model/preferensi.dart';
 import 'greeting.dart';
+import '../model/pesan.dart';
+
+Future<Pesan> pemesanan(String nama_movies, String kode_unik, String nomor_kursi, String lokasi_bioskop, String tanggal_film, String jam_film, String total_harga) async {
+  var url = 'http://172.20.10.3/api/mobile';
+  final response = await http.post(Uri.parse(url), headers: {
+    'Accept': 'application/json',
+  }, body: {
+    'nama_movies': nama_movies,
+    'kode_unik': kode_unik,
+    'nomor_kursi': nomor_kursi,
+    'lokasi_bioskop': lokasi_bioskop,
+    'tanggal_film': tanggal_film,
+    'jam_film': jam_film,
+    'total_harga': total_harga
+  });
+
+  if (response.statusCode == 200) {
+    Pesan psn = Pesan(nama_movies, kode_unik, nomor_kursi, lokasi_bioskop, tanggal_film, jam_film, total_harga);
+    return psn;
+  } else {
+    throw Exception('hallo');
+  }
+}
 
 class PageRingkasan extends StatefulWidget {
   const PageRingkasan({
@@ -19,6 +43,9 @@ class PageRingkasan extends StatefulWidget {
 
 class _State extends State<PageRingkasan> {
   final datasets = <String, dynamic>{};
+  final pesan = Pesan('', '', '', '', '', '', '');
+  bool _submit = false;
+  Future<Pesan>? _pemesanan;
 
   @override
   void initState() {
@@ -109,7 +136,7 @@ class _State extends State<PageRingkasan> {
                             decoration: const BoxDecoration(
                               color: Color(0xFF36474F),
                             ),
-                            child: Text(''+Preferensi().getMoviesName+'',
+                            child: Text('' + Preferensi().getMoviesName + '',
                                 style: GoogleFonts.montserrat(
                                   textStyle: TextStyle(
                                     color: const Color(0xFFFFFFFF),
@@ -461,11 +488,18 @@ class _State extends State<PageRingkasan> {
                 ),
               ),
               GestureDetector(
-                onTap: () async {
-                  await Navigator.push<void>(context, 
-                      MaterialPageRoute(builder: (context) => PageHappyWatching(),),
-                      );
+                  onTap: () {
+                    setState(() {
+                      _submit = true;
+                    });
+                    _pemesanan =
+                        pesan(_nama_movies.text, _kode_unik.text, _confirmPass.text);
                   },
+                  // onTap: () async {
+                  //   await Navigator.push<void>(context,
+                  //       MaterialPageRoute(builder: (context) => PageHappyWatching(),),
+                  //       );
+                  //   },
                   child: Container(
                       margin: const EdgeInsets.only(
                         top: 18,
@@ -487,9 +521,7 @@ class _State extends State<PageRingkasan> {
                           ),
                         ),
                         textAlign: TextAlign.center,
-                      )
-                  )
-              ),
+                      ))),
             ],
           ),
         ],
